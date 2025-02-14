@@ -24,11 +24,13 @@ export const useFirebaseStore = defineStore('firebase', {
 
   actions: {
 
+    // 初始化
     setupFirebaseStorage(){
       console.log("init firebase");
       this.storage = getStorage(initializeApp(firebaseConfig));
     },
 
+    // 取得圖片
     async getImgs(){
       console.log("get all files");
       // ref: https://firebase.google.com/docs/storage/web/list-files?hl=zh-tw
@@ -52,6 +54,7 @@ export const useFirebaseStore = defineStore('firebase', {
       })
     },
 
+    // 上傳圖片
     uploadImg(input, newFileName, uploadProgress=null){
       // console.dir(input.files[0]);
       // return;
@@ -77,6 +80,7 @@ export const useFirebaseStore = defineStore('firebase', {
       );
     },
 
+    // 刪除圖片
     delImg(index){
       const fullPath = this.itemUrls[index].fullPath;
       const desertRef = ref(this.storage, fullPath);
@@ -85,7 +89,45 @@ export const useFirebaseStore = defineStore('firebase', {
       }).catch((error) => {
         console.log(error);
       });
-    }
+    },
+
+    // 壓縮圖片
+    // ref: https://ithelp.ithome.com.tw/m/articles/10299106
+    // ref: https://blog.csdn.net/qq_37111820/article/details/121156771
+    // ref: https://blog.csdn.net/pdd11997110103/article/details/108003214
+    async compressImg(file){   
+      return new Promise(resolve => {
+          const ratio = this.photoLimit / file.size;        
+          // 讀取圖片
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onloadend = function(e){
+              let img = new Image();
+              img.src = e.target.result;
+              img.onload = function(){
+                  // 使用 canvas 縮放圖片
+                  const canvas = document.createElement('canvas');
+                  const context = canvas.getContext('2d');
+                  canvas.width = img.width * ratio;
+                  canvas.height = img.height * ratio;
+                  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                  const dataUrl = canvas.toDataURL(file.type, 1.0);
+  
+                  // dataURL to file
+                  var arr = dataUrl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                  bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+                  while(n--){
+                      u8arr[n] = bstr.charCodeAt(n);
+                  }
+                  let res = new File([u8arr], file.name, {type:mime});
+
+                  // return
+                  resolve(res);
+              }
+          }
+      })
+  },
+
 
   }
 })
