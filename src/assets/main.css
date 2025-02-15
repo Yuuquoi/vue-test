@@ -1,0 +1,11 @@
+*,
+*::before,
+*::after {
+    /* init 樣式 */
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0;
+  
+    /* 需要把原本的 scrollbar 隱藏 */
+    scrollbar-width: none;
+}
