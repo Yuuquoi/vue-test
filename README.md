@@ -1,29 +1,12 @@
-# .
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+# Before Start
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
+npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+# 各 git 的內容簡介
+## generate pdf use jsPDF (f5041285ad9753931cc9fdf16a4d024b505a9424)
+說明如何將 html 畫面輸出為 PDF
 
-```sh
-npm run build
-```
+## generate pdf using chinese (8364125243381fb770fe8d179533d0d36d19faf7)
+說明如何正確輸出帶有中文字或自定義字體的 PDF
