@@ -1,29 +1,12 @@
-# .
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+# Before Start
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
+npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+# 各 git 的內容簡介
+## vue material init & use (a5eddec5b4667060675a1f965214499809e49925)
+vuetify 初始化及基本使用教學
 
-```sh
-npm run build
-```
+## vue perfect scrollbar (4b1620399c4b0cf097af61414f738f199832d4be)
+vue perfect scrollbar 初始化及基本使用教學
