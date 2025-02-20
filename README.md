@@ -1,29 +1,15 @@
-# .
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+# Before Start
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
+npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+# 各 git 的內容簡介
+## firebase basic opration impl (3fbd2a4097515f23ec1fac909b7862f17898818c)
+firebase 基本操作：初始化、上傳檔案、取得檔案、取得檔案下載/預覽連結、刪除檔案
 
-```sh
-npm run build
-```
+## compress img (4c97df3a6b676f81da7409a4312ff9ef96c08807)
+壓縮圖檔的方法
+
+## download (95cd3a72f2ba7d4cd34873c921f5ab441d97dc2a)
+firebase 下載檔案
